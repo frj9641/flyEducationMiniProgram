@@ -1,0 +1,24 @@
+<view class="page" data-weui-theme="{{theme}}">
+
+	<view class="page__hd">
+		<view class="weui-panel__hd">家长反馈</view>
+		<!-- <view class="page__desc">面板</view> -->
+	</view>
+
+	<view class="page__bd">
+		<view class="weui-panel weui-panel_access">
+    <!-- wx:for-item="item" 可以省略 -->
+			<view wx:for="{{feedbacks}}" wx:key="feedbackId" class="weui-panel__bd">
+				<view class="weui-media-box weui-media-box_text">
+					<h4 class="weui-media-box__title">学生名称：{{item.studentName}}</h4>
+          <view class="weui-media-box__desc">星级评分：{{item.mark}}</view>
+          <view class="weui-media-box__desc">评价建议：{{item.word}}</view>
+          <view class="weui-media-box__desc">评价日期：{{item.date}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+</view>
+
+

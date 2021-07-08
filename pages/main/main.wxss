@@ -1,0 +1,15 @@
+/* pages/main/main.wxss */
+.weui-grid{
+  border-top: 1px solid var(--weui-FG-3);
+  border-left: 1px solid var(--weui-FG-3);
+  background-color: white;
+}
+.weui-grid__icon{
+  width: 100rpx;
+  height: 100rpx;
+}
+.page__title{
+  font-size: 40rpx;
+  font-weight: 500;
+  padding-left: 10rpx;
+}

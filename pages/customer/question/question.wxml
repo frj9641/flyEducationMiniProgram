@@ -1,0 +1,21 @@
+<view class="page">
+	<view class="page__bd" style="height: 100%;">
+		<view class="weui-tab">
+			<view class="weui-tab__panel">
+			<!-- 防止异步错误 -->
+				<block wx:if="{{photoUrl}}" wx:for="{{photoUrl}}">
+        	<image bindtap="preview" class="homework_image" mode="widthFix" src="{{server}}/photo/{{item}}"></image>
+				</block>
+        <view>{{word}}</view>
+			</view>
+			<view class="weui-tabbar">
+				<view class="weui-tabbar__item weui-bar__item_on">
+					<!-- <view style="display: inline-block; position: relative;">
+						<image alt class="weui-tabbar__icon"></image>
+					</view> -->
+					<button wx:if='{{isSubmit==0}}' style="width:100%" class="button" hover-class="tap_button" bindtap="doHomework">写作业</button>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,33 @@
+<view class="page" data-weui-theme="{{theme}}">
+
+	<view class="page__hd">
+		<view class="weui-panel__hd">咨询列表</view>
+		<!-- <view class="page__desc">面板</view> -->
+	</view>
+
+	<view class="page__bd">
+		<view class="weui-panel weui-panel_access">
+    <!-- wx:for-item="item" 可以省略 -->
+			<view wx:if="{{item.isFinished==0}}" wx:for="{{orders}}" wx:key="orderId" class="weui-panel__bd">
+				<view class="weui-media-box weui-media-box_text">
+					<text selectable="true" class="weui-media-box__title">学生姓名：{{item.studentName}}</text>
+					<text selectable="true" class="weui-media-box__desc">微信号：{{item.phone}}</text>
+					<view class="weui-media-box__desc">所报课程：{{item.marketName}}</view>
+					<view class="weui-media-box__desc">任课老师：{{item.teacherName}}</view>
+				</view>
+				<view class="button_column">
+					<button style="width:100%" class="button" hover-class="tap_button" wx:if="{{item.isAdded==0}}" bindtap="changeIsAdded" 
+					data-index="{{index}}" data-orderId="{{item.orderId}}">确认添加好友</button>
+					<button class="button" style="background-color: #8ca2b5; color:#fff" wx:if="{{item.isAdded==1}}" disabled="true">已加好友</button>
+					<button class="button" hover-class="tap_button" wx:if="{{item.isAdded==1}}" bindtap="changeIsFinishedAndIsIntent" 
+					data-index="{{index}}" data-orderId="{{item.orderId}}">申请排课</button>
+					<button class="button" hover-class="tap_button" wx:if="{{item.isAdded==1}}" bindtap="changeIsFinished" 
+					data-index="{{index}}" data-orderId="{{item.orderId}}">会话结束</button>
+				</view>
+			</view>
+		</view>
+	</view>
+
+</view>
+
+

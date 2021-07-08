@@ -1,0 +1,74 @@
+<!--pages/cal/cal.wxml-->
+<!-- 日历年月 -->
+<wxs module="helper">
+module.exports.includes = function(selectDays, day){
+    return selectDays.indexOf(day) > -1
+}
+</wxs>
+
+<view class='calendar_title flex_nowrap'>
+  <button class='icon' style="width: 198rpx;" bindtap='lastMonth'>
+  上个月
+    <!-- <image src='/images/icon/28.png' /> -->
+  </button>
+  <view class='currentMonth'>{{year}}年{{month}}月</view>
+  <button class='icon' style="width: 198rpx;" bindtap='nextMonth'>
+  下个月
+    <!-- <image src='/images/icon/29.png' /> -->
+  </button>
+</view>
+
+<!-- 日历主体 -->
+<view class='calendar'>
+  <view class='header'>
+    <view wx:for='{{date}}' wx:key='date' class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>{{item}}
+      <view></view>
+    </view>
+  </view>
+
+  <view class='date-box'>
+    <block wx:for='{{dateArr}}' wx:key='dateArr'>
+      <view class='{{helper.includes(classDate,item.isToday)?"classDay":""}} {{selectDay == item.isToday ? "selectDay" : ""}}'>
+        <view class='date-head' bindtap='calendarTap' data-year='{{year}}' data-month='{{month}}' data-datenum='{{item.dateNum}}'>
+          <view>{{item.dateNum}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+</view>
+
+  <view class="weui-cell">
+  <view class="weui-cell__hd"><label class="weui-label">起止时间</label></view>
+    <view class="weui-cell__bd weui-cell_active">
+      <picker bindchange="bindStartHourChange" range="{{hour}}">
+        <view class="weui-select">{{startHour}}</view>
+      </picker>
+    </view>
+    <view>：</view>
+    <view class="weui-cell__bd weui-cell_active">
+      <picker bindchange="bindStartMinuteChange" range="{{minute}}">
+        <view class="weui-select">{{startMinute}}</view>
+      </picker>
+    </view>
+    <view>~</view>
+    <view class="weui-cell__bd weui-cell_active">
+      <picker bindchange="bindEndHourChange" range="{{hour}}">
+        <view class="weui-select">{{endHour}}</view>
+      </picker>
+    </view>
+    <view>：</view>
+    <view class="weui-cell__bd weui-cell_active">
+      <picker bindchange="bindEndMinuteChange" range="{{minute}}">
+        <view class="weui-select">{{endMinute}}</view>
+      </picker>
+    </view>
+  </view>
+
+<view wx:if="{{submit==0}}" class="buttons">
+  <button wx:if="{{!helper.includes(classDate,selectDay)&startChange==0}}" class="button" hover-class="tap_button" bindtap="addClassDate">额外加课</button>
+  <button wx:if="{{helper.includes(classDate,selectDay)|startChange==1}}" disabled="true" class="button" hover-class="tap_button">额外加课</button>
+  <button wx:if="{{!helper.includes(classDate,selectDay)&startChange==0}}" disabled="true" class="button" hover-class="tap_button">修改课时</button>
+  <button wx:if="{{helper.includes(classDate,selectDay)&startChange==0}}" class="button" hover-class="tap_button" bindtap="startChange">修改课时</button>
+  <button wx:if="{{startChange==1}}" class="button" hover-class="tap_button" bindtap="changeDate">确定改课</button>
+</view>

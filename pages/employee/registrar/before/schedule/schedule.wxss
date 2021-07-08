@@ -1,0 +1,124 @@
+/* pages/schedule/schedule.wxss */
+.title{
+  display: flex;
+}
+.title_image{
+  padding-top: 4rpx;
+  padding-right: 22rpx;
+  padding-bottom: 4rpx;
+  position: fixed;
+  right: 0;
+  width: 60rpx;
+  height: 60rpx;
+}
+.weui-panel__hd{
+  padding: 4rpx 37rpx 4rpx;
+  font-size: 44rpx;
+}
+.weui-panel__bd{
+  border-bottom: 2rpx solid var(--weui-FG-3);
+}
+.weui-media-box_text{
+  padding: 9rpx 37rpx 9rpx;
+}
+.weui-media-box__title{
+  font-size: 36rpx;
+}
+.weui-media-box__desc{
+  font-size: 24rpx;
+  color: #000000;
+}
+.time{
+  color: #3a4f60;
+  font-weight: 600;
+  font-size: 32rpx;
+}
+.button_column{
+  display: flex;
+  justify-content: space-around;
+}
+.button{
+  font-size: 30rpx;
+  background-color:#627b8f ;
+  color: #fff;
+  border-radius: 0rpx;
+}
+.tap_button{
+  background-color:#8ca2b5; 
+}
+.button1{
+  background-color:#627b8f ;
+  color: #fff;
+}
+
+/* 下拉筛选样式 */
+.filter{
+  padding-left: 30rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+.filter_item{
+  font-size: 28rpx;
+}
+.select_filter_item{
+  font-size: 28rpx;
+  color: purple;
+}
+.weui-flex {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center
+}
+
+.weui-cells {
+  margin-top: 0;
+  opacity: 0;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: .3s;
+  transition: .3s
+}
+
+.weui-cells:after,
+.weui-cells:before {
+  display: none
+}
+
+.weui-cells_show {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  transform: translateY(0)
+}
+
+.weui-cell:before {
+  right: 15px
+}
+
+.kind-list__item {
+  margin: 10px 0;
+  background-color: var(--weui-BG-2);
+  border-radius: 2px;
+  overflow: hidden
+}
+
+.kind-list__item:first-child {
+  margin-top: 0
+}
+
+.kind-list__item-hd {
+  padding-left: 36rpx;
+  border-bottom: 2rpx solid var(--weui-FG-3);
+}
+
+.kind-list__item-hd_show {
+  opacity: .4
+}
+
+.kind-list__item-bd {
+  height: 0;
+  overflow: hidden
+}
+
+.kind-list__item-bd_show {
+  height: auto
+}

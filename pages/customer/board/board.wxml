@@ -1,0 +1,52 @@
+<view class="page" data-weui-theme="{{theme}}">
+
+<swiper class="swiper_title" autoplay="true" circular="true" indicator-dots="true" indicator-color="#3a4f60" indicator-active-color="#76f8ec">
+  <swiper-item><image class="swiper_image" mode="scaleToFill" src="https://aecpm.alicdn.com/simba/img/TB1CWf9KpXXXXbuXpXXSutbFXXX.jpg_q50.jpg"/></swiper-item>
+  <swiper-item><image class="swiper_image" mode="scaleToFill" src="https://gw.alicdn.com/imgextra/i4/65/O1CN01a4I91Y1CLoL0Gh8nC_!!65-0-lubanu.jpg"/></swiper-item>
+</swiper>
+
+	<view class="page__hd">
+		<view class="weui-panel__hd">课程列表</view>
+		<!-- <view class="page__desc">面板</view> -->
+	</view>
+
+	<scroll-view scroll-x>
+		<view class="filter">
+			<view class="filter_items" wx:for="{{subjects}}">
+				<view class='{{item==subject?"select_filter_item":"filter_item"}}' data-subject="{{item}}" bindtap="filter">{{item}}</view>
+			</view>
+		</view>
+	</scroll-view>
+
+	<view class="page__bd">
+		<view class="weui-panel weui-panel_access">
+    <!-- wx:for-item="item" 可以省略 -->
+			<view wx:if="{{item.subject==subject||isAll==1}}" wx:for="{{lessons}}" wx:key="marketId" class="weui-panel__bd">
+				<navigator class="weui-media-box weui-media-box_text" url="../poster/poster?marketId={{item.marketId}}&posterUrl={{item.posterUrl}}">
+					<view class="card">
+						<view>
+							<h4 class="weui-media-box__title">
+							{{item.marketName}}
+							</h4>
+							<view class="weui-media-box__desc">主讲：{{item.teacherName}}</view>
+							<view class="weui-media-box__desc">简介：{{item.introduction}}</view>
+							<image style="width:120rpx;height:60rpx;padding-top:12rpx;" src="../../../style/picture/baoming.png"></image>
+						</view>
+						<image wx:if="{{item.subject=='语文'}}" style="width:155rpx;height:155rpx;" class="card_picture" src="../../../style/picture/chinese.png"></image>
+						<image wx:if="{{item.subject=='数学'}}" style="width:155rpx;height:155rpx;" class="card_picture" src="../../../style/picture/math.png"></image>
+						<image wx:if="{{item.subject=='编程'}}" style="width:155rpx;height:155rpx;" class="card_picture" src="../../../style/picture/code.png"></image>
+						<image wx:if="{{item.subject=='物理'}}" style="width:155rpx;height:155rpx;" class="card_picture" src="../../../style/picture/physics.png"></image>
+						<image wx:if="{{item.subject=='化学'}}" style="width:155rpx;height:155rpx;" class="card_picture" src="../../../style/picture/chemistry.png"></image>
+						<image wx:if="{{item.subject=='生物'}}" style="width:155rpx;height:155rpx;" class="card_picture" src="../../../style/picture/biology.png"></image>
+						<image wx:if="{{item.subject=='地理'}}" style="width:155rpx;height:155rpx;" class="card_picture" src="../../../style/picture/geography.png"></image>
+						<image wx:if="{{item.subject=='历史'}}" style="width:155rpx;height:155rpx;" class="card_picture" src="../../../style/picture/history.png"></image>
+						<image wx:if="{{item.subject=='政治'}}" style="width:155rpx;height:155rpx;" class="card_picture" src="../../../style/picture/politics.png"></image>
+						<image wx:if="{{item.subject=='英语'}}" style="width:155rpx;height:155rpx;" class="card_picture" src="../../../style/picture/chinese.png"></image>
+					</view>
+				</navigator>
+			</view>
+		</view>
+	</view>
+
+</view>
+

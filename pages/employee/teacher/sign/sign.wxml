@@ -1,0 +1,28 @@
+<view class="page" data-weui-theme="{{theme}}">
+
+	<view class="page__hd">
+		<view class="weui-panel__hd">学生列表</view>
+		<!-- <view class="page__desc">面板</view> -->
+	</view>
+
+	<view class="page__bd">
+		<view class="weui-panel weui-panel_access">
+    <!-- wx:for-item="item" 可以省略 -->
+			<view wx:for="{{students}}" wx:key="studentId" class="weui-panel__bd">
+				<view class="weui-media-box weui-media-box_text">
+					<h4 class="weui-media-box__title">{{item.studentName}}</h4>
+				</view>	
+				<view class="buttons">
+						<button bindtap="signin" wx:if="{{item.mark==null&&day=='今日'}}" data-studentId="{{item.studentId}}" data-index="{{index}}" class="button" hover-class="tap_button" size="mini">签到</button>
+						<button bindtap="belate" wx:if="{{item.mark==null&&day=='今日'}}" data-studentId="{{item.studentId}}" data-index="{{index}}" class="button" hover-class="tap_button" size="mini">迟到</button>
+						<button bindtap="absent" wx:if="{{item.mark==null&&day=='今日'}}" data-studentId="{{item.studentId}}" data-index="{{index}}" class="button" hover-class="tap_button" size="mini">旷课</button>
+						<button class="button" style="background-color: #8ca2b5; color:#fff" wx:if="{{item.mark!=null&&day=='今日'}}" size="mini" disabled="true">已记录</button>
+						<button bindtap="statistics" data-studentId="{{item.studentId}}" class="button" hover-class="tap_button" size="mini">考勤</button>
+					</view>
+			</view>
+		</view>
+	</view>
+
+</view>
+
+

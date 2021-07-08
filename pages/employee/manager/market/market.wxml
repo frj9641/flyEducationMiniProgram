@@ -1,0 +1,113 @@
+<view class="page" data-weui-theme="{{theme}}">
+
+	<form class="weui-form" bindsubmit="marketSubmit">
+		<view class="weui-form__text-area">
+			<h2 class="weui-form__title">营销课注册</h2>
+			<!-- <view class="weui-form__desc">展示表单页面的信息结构样式, 分别由头部区域/控件区域/提示区域/操作区域和底部信息区域组成。</view> -->
+		</view>
+    
+		<view class="weui-form__control-area">
+			<view class="weui-cells__group weui-cells__group_form">
+				<!-- <view class="weui-cells__title">表单组标题</view> -->
+				<view class="weui-cells weui-cells_form">
+        
+					<view class="weui-cell weui-cell_active">
+						<view class="weui-cell__hd"><label class="weui-label">课程名称</label></view>
+						<view class="weui-cell__bd">
+							<input name="marketName" class="weui-input" placeholder="填写课程名称" placeholder-class="weui-input__placeholder" />
+						</view>
+					</view>
+
+          <view class="weui-cells__title">课程简介</view>
+          <view class="weui-cell ">
+            <view class="weui-cell__bd">
+              <textarea name="introduction" class="weui-textarea" placeholder="填写课程简介" rows="16"></textarea>
+            </view>
+          </view>
+
+					<view class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd"><label class="weui-label">所属学科</label></view>
+						<view class="weui-cell__bd">
+              <picker bindchange="bindSubjectChange" range="{{subjects}}">
+                <view class="weui-select">{{subject}}</view>
+              </picker>
+						</view>
+					</view>
+
+          <view class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd"><label class="weui-label">负责教务</label></view>
+						<view class="weui-cell__bd">
+              <picker bindchange="bindRegistrarChange" range="{{registrars}}" range-key="employeeName">
+                <view class="weui-select">{{registrarName}}</view>
+              </picker>
+						</view>
+					</view>
+
+					<view class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd"><label class="weui-label">任课老师</label></view>
+						<view class="weui-cell__bd">
+              <picker bindchange="bindTeacherChange" range="{{teachers}}" range-key="employeeName">
+                <view class="weui-select">{{teacherName}}</view>
+              </picker>
+						</view>
+					</view>
+
+					<view class="weui-cell">
+            <view class="weui-cell__hd"><label class="weui-label">课程类型</label></view>
+            <view class="weui-cells weui-cells_after-title">
+              <radio-group bindchange="radioChange">
+                <label class="weui-cell weui-check__label" wx:for="{{items}}" wx:key="value">
+                  <view class="weui-cell__hd">
+                    <radio value="{{item.value}}"/>
+                  </view>
+                  <view class="weui-cell__bd">{{item.name}}</view>
+                </label>
+              </radio-group>
+            </view>
+          </view>
+
+          <view wx:if="{{is_period==1}}" class="weui-cell weui-cell_active">
+						<view class="weui-cell__hd"><label class="weui-label">课时数量</label></view>
+						<view class="weui-cell__bd">
+							<input type="number" name="period" class="weui-input" placeholder="填写课时数量" placeholder-class="weui-input__placeholder" />
+						</view>
+					</view>
+
+					<view class="weui-cell weui-cell_active">
+						<view class="weui-cell__hd"><label class="weui-label">销售价格</label></view>
+						<view class="weui-cell__bd">
+							<input name="price" type="digit" maxlength="11" class="weui-input" placeholder="填写销售价格" placeholder-class="weui-input__placeholder" />
+						</view>
+					</view>
+
+					<view class="weui-cell weui-cell_active">
+						<view class="weui-cell__hd"><label class="weui-label">课程海报</label></view>
+						<view bindtap="choosePoster">点此上传海报</view>
+					</view>
+
+				</view>
+			</view>
+		</view>
+
+		<view class="weui-form__opr-area">
+			<button class="button" hover-class="tap_button" form-type="submit">上传课程</button>
+		</view>
+
+		<!-- <view class="weui-form__tips-area">
+			<view class="weui-form__tips">
+                表单页提示，居中对齐
+			</view>
+		</view> -->
+    
+		<view class="weui-form__extra-area">
+			<view class="weui-footer">
+				<!-- <view class="weui-footer__links">
+					<a href="javascript:" class="weui-footer__link">底部链接文本</a>
+				</view> -->
+				<view class="weui-footer__text">Copyright © 2019-2020</view>
+			</view>
+		</view>
+
+	</form>
+
+</view>

@@ -1,0 +1,24 @@
+<view class="page" data-weui-theme="{{theme}}">
+
+	<view class="page__hd">
+		<view class="weui-panel__hd">班级学生</view>
+		<!-- <view class="page__desc">面板</view> -->
+	</view>
+
+	<view class="page__bd">
+		<view class="weui-panel weui-panel_access">
+    <!-- wx:for-item="item" 可以省略 -->
+			<view wx:if="{{item.classId}}" wx:for="{{students}}" wx:key="studentId" class="weui-panel__bd">
+				<view class="weui-media-box weui-media-box_text">
+					<h4 class="weui-media-box__title">{{item.studentName}}</h4>
+					<button class="delete_button" hover-class="tap_button" bindtap="removeStudent" data-index="{{index}}" data-studentId="{{item.studentId}}" size="mini">移除</button>
+				</view>
+			</view>
+		</view>
+	</view>
+
+  <button class="button" hover-class="tap_button" bindtap="addStudent">添加学员</button>
+
+</view>
+
+

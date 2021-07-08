@@ -1,0 +1,73 @@
+<view class="page" data-weui-theme="{{theme}}">
+
+	<view>
+		<view class="weui-flex kind-list__item-hd {{open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
+			<view class="weui-flex__item">筛选</view>
+		</view>
+		<view class="kind-list__item-bd {{open ? 'kind-list__item-bd_show' : ''}}">
+			<view class="weui-cells {{open ? 'weui-cells_show' : ''}}">
+				<block wx:for="{{markets}}">
+					<view class="filter">
+						<view class='{{item==market?"select_filter_item":"filter_item"}}' bindtap="filter" data-marketName="{{item}}">{{item}}</view>
+					</view>
+				</block>
+			</view>
+		</view>
+	</view>
+
+	<view class="title page__hd">
+		<view class="weui-panel__hd">排课页面</view>
+		<image bindtap="toAddPage" class="title_image" src="../../../../../style/picture/add.png"></image>
+		<!-- <view class="page__desc">面板</view> -->
+	</view>
+
+	<view class="page__bd">
+		<view class="weui-panel weui-panel_access">
+    <!-- wx:for-item="item" 可以省略 -->
+			<view wx:if="{{item.isSuccess==0&&item.isIntent==1&&(item.marketName==market||isAll==1)}}" wx:for="{{schedules}}" wx:key="orderId" class="weui-panel__bd">
+				<view class="weui-media-box weui-media-box_text">
+					<text selectable="true" class="weui-media-box__title">学生姓名：{{item.studentName}}</text>
+					<text selectable="true" class="weui-media-box__desc">微信号：{{item.phone}}</text>
+					<view class="weui-media-box__desc">所报课程：{{item.marketName}}</view>
+					<view class="weui-media-box__desc">任课老师：{{item.teacherName}}</view>
+					<view class="time weui-media-box__desc">意愿时间：{{item.date}}</view>
+				</view>
+				<view class="button_column">
+					<button class="button" hover-class="tap_button" bindtap="open" data-index="{{index}}" data-orderId="{{item.orderId}}">修改时间</button>
+					<button class="button" hover-class="tap_button" bindtap="changeIsSuccess" data-index="{{index}}" data-orderId="{{item.orderId}}">报名成功</button>
+					<button class="button" hover-class="tap_button" bindtap="changeIsIntent" data-index="{{index}}" data-orderId="{{item.orderId}}">报名失败</button>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="fadeIn" wx:if="{{dialog1}}">
+    <view class="weui-mask" bindtap="close"></view>
+      <view class="weui-half-screen-dialog">
+        <view class="weui-half-screen-dialog__hd">
+          <view class="weui-half-screen-dialog__hd__side" bindtap="close">
+            <a class="weui-icon-btn">关闭<i class="weui-icon-close-thin"></i></a>
+          </view>
+          <view class="weui-half-screen-dialog__hd__main">
+            <strong class="weui-half-screen-dialog__title">修改{{schedules[index].studentName}}的意愿时间</strong>
+          </view>
+        </view>
+        <view class="weui-half-screen-dialog__bd" style="padding-top:0px;height:100px;">
+          <form bindsubmit="dateSubmit">
+					<view class="weui-cell weui-cell_active">
+						<view class="weui-cell__hd"><label class="weui-label">意愿时间</label></view>
+							<view class="weui-cell__bd">
+								<input name="date" value="{{schedules[index].date}}" class="weui-input" placeholder="填写意愿时间" placeholder-class="weui-input__placeholder" />
+							</view>
+						</view>
+						<button class="button1" hover-class="tap_button" form-type="submit">修改</button>
+					</form>
+        </view>
+    </view>
+  </view>
+
+</view>
+
+
+
+

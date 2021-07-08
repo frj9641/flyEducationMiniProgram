@@ -1,0 +1,13 @@
+/* pages/employee/teacher/score/score.wxss */
+.photo_image {
+  width: 100%;
+  vertical-align: bottom;
+}
+.button{
+  justify-content: center;
+  background-color:#627b8f ;
+  color: #fff;
+}
+.tap_button{
+  background-color:#8ca2b5; 
+}

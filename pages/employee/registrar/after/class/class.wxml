@@ -1,0 +1,74 @@
+<view class="page" data-weui-theme="{{theme}}">
+
+	<form class="weui-form" bindsubmit="classSubmit">
+		<view class="weui-form__text-area">
+			<h2 class="weui-form__title">开设班级表</h2>
+			<!-- <view class="weui-form__desc">展示表单页面的信息结构样式, 分别由头部区域/控件区域/提示区域/操作区域和底部信息区域组成。</view> -->
+		</view>
+    
+		<view class="weui-form__control-area">
+			<view class="weui-cells__group weui-cells__group_form">
+				<!-- <view class="weui-cells__title">表单组标题</view> -->
+				<view class="weui-cells weui-cells_form">
+        
+					<view class="weui-cell weui-cell_active">
+						<view class="weui-cell__hd"><label class="weui-label">班级名称</label></view>
+						<view class="weui-cell__bd">
+							<input name="className" class="weui-input" placeholder="填写班级名称" placeholder-class="weui-input__placeholder" />
+						</view>
+					</view>
+
+          <view class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd"><label class="weui-label">所属学科</label></view>
+						<view class="weui-cell__bd">
+              <picker name="subjectNo" bindchange="bindSubjectChange" range="{{subjects}}">
+                <view class="weui-select">{{subject}}</view>
+              </picker>
+						</view>
+					</view>
+
+          <view class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd"><label class="weui-label">负责教务</label></view>
+						<view class="weui-cell__bd">
+              <picker bindchange="bindRegistrarChange" range="{{registrars}}" range-key="employeeName">
+                <view class="weui-select">{{registrarName}}</view>
+              </picker>
+						</view>
+					</view>
+
+					<view class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd"><label class="weui-label">任课老师</label></view>
+						<view class="weui-cell__bd">
+              <picker bindchange="bindTeacherChange" range="{{teachers}}" range-key="employeeName">
+                <view class="weui-select">{{teacherName}}</view>
+              </picker>
+						</view>
+					</view>
+
+				</view>
+			</view>
+		</view>
+
+		<view class="weui-form__opr-area">
+			<button class="button" hover-class="tap_button" form-type="submit">确定</button>
+		</view>
+
+		<!-- <view class="weui-form__tips-area">
+			<view class="weui-form__tips">
+                表单页提示，居中对齐
+			</view>
+		</view> -->
+    
+		<view class="weui-form__extra-area">
+			<view class="weui-footer">
+				<!-- <view class="weui-footer__links">
+					<a href="javascript:" class="weui-footer__link">底部链接文本</a>
+				</view> -->
+				<view class="weui-footer__text">Copyright © 2019-2020</view>
+			</view>
+		</view>
+
+	</form>
+
+</view>
+

@@ -1,0 +1,20 @@
+/* pages/poster/poster.wxss */
+/* 导航栏下移 */
+.poster {
+  width: 100%;
+  vertical-align: bottom;
+}
+/* wxss第一步 */
+.btn{
+  display: flex;
+  justify-content: center;
+}
+.button_image {
+  height: 49rpx;
+  width: 54rpx;
+  margin-right: 30rpx;
+}
+.button_text{
+  font-size-adjust: 1;
+}
+

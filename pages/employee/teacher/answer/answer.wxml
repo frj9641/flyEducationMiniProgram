@@ -1,0 +1,22 @@
+<view class="page" data-weui-theme="{{theme}}">
+
+	<view class="page__hd">
+		<view class="weui-panel__hd">提交记录</view>
+		<!-- <view class="page__desc">面板</view> -->
+	</view>
+
+	<view class="page__bd">
+		<view class="weui-panel weui-panel_access">
+    <!-- wx:for-item="item" 可以省略 -->
+			<navigator wx:for="{{homeworks}}" wx:key="scoreId" class="weui-panel__bd" url="../score/score?scoreId={{item.scoreId}}">
+				<view class="weui-media-box weui-media-box_text">
+					<h4 class="weui-media-box__title">{{item.studentName}}的作业</h4>
+					<text class="tip" wx:if="{{item.mark==null}}">未评价</text>
+					<text class="tip" wx:if="{{item.mark!=null}}">已评价</text>
+				</view>
+			</navigator>
+		</view>
+	</view>
+
+</view>
+

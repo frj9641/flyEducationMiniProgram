@@ -1,0 +1,25 @@
+<view class="page" data-weui-theme="{{theme}}">
+
+	<view class="page__hd">
+		<view class="weui-panel__hd">班级作业</view>
+		<!-- <view class="page__desc">面板</view> -->
+	</view>
+
+	<view class="page__bd">
+		<view class="weui-panel weui-panel_access">
+    <!-- wx:for-item="item" 可以省略 -->
+			<view wx:for="{{homeworks}}" wx:key="homeworkId" class="weui-panel__bd">
+				<view class="weui-media-box weui-media-box_text">
+					<h4 class="weui-media-box__title">{{item.date}}的作业</h4>
+					<text class="tip">{{item.mark}}</text>
+				</view>
+				<view class="buttons">
+					<button wx:if="{{item.photoUrls.length>0}}" data-photoUrl="{{item.photoUrls}}" bindtap="preview" class="button" hover-class="tap_button" size="mini">记录</button>
+					<button data-scoreId="{{item.scoreId}}" data-homeworkId="{{item.homeworkId}}" data-studentId="{{item.studentId}}" bindtap="doHomework" class="button" hover-class="tap_button" size="mini">题目</button>
+				</view>
+			</view>
+		</view>
+	</view>
+
+</view>
+

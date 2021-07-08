@@ -1,0 +1,47 @@
+<view class="page">
+	<view class="page__bd" style="height: 100%;">
+		<view class="weui-tab">
+			<view class="weui-tab__panel">
+			<!-- 防止异步错误 -->
+				<block wx:if="{{photoUrl}}" wx:for="{{photoUrl}}">
+        	<image bindtap="preview" class="photo_image" mode="widthFix" src="{{server}}/score/{{item}}"></image>
+				</block>
+        <text>{{word}}</text>
+			</view>
+			<view class="weui-tabbar">
+				<view class="weui-tabbar__item weui-bar__item_on">
+					<!-- <view style="display: inline-block; position: relative;">
+						<image alt class="weui-tabbar__icon"></image>
+					</view> -->
+					<button class="button" hover-class="tap_button" bindtap="doMark">评价</button>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="fadeIn" wx:if="{{dialog1}}">
+    <view class="weui-mask" bindtap="close"></view>
+      <view class="weui-half-screen-dialog">
+        <view class="weui-half-screen-dialog__hd">
+          <view class="weui-half-screen-dialog__hd__side" bindtap="close">
+            <a class="weui-icon-btn">关闭<i class="weui-icon-close-thin"></i></a>
+          </view>
+          <view class="weui-half-screen-dialog__hd__main">
+            <strong class="weui-half-screen-dialog__title">作业评价</strong>
+          </view>
+        </view>
+        <view class="weui-half-screen-dialog__bd" style="padding-top:0px;height:100px;">
+          <form bindsubmit="markSubmit">
+					<view class="weui-cell weui-cell_active">
+						<view class="weui-cell__hd"><label class="weui-label">评价</label></view>
+							<view class="weui-cell__bd">
+								<input name="mark" maxlength="10" class="weui-input" placeholder="填写作业评价" placeholder-class="weui-input__placeholder" />
+							</view>
+						</view>
+						<button class="button" hover-class="tap_button" form-type="submit">评价</button>
+					</form>
+        </view>
+    </view>
+  </view>
+
+</view>

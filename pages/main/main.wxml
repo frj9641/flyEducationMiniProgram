@@ -1,0 +1,117 @@
+<view class="page" data-weui-theme="{{theme}}">
+	<view class="weui-grids">
+
+    <view class="page__hd">
+      <view class="page__title">家长</view>
+    </view>
+
+    <button style="width:33.3%;font-weight:400" open-type="getUserInfo" bindgetuserinfo="toBoard" class="weui-grid">
+			<view class="weui-grid__icon">
+				<image style="width:110rpx;height:100rpx;" src="../../style/picture/board.png"></image>
+			</view>
+			<view class="weui-grid__label">课程列表</view>
+		</button>
+
+    <navigator url="../customer/class/class" class="weui-grid">
+			<view class="weui-grid__icon">
+				<image style="width:110rpx;height:100rpx" src="../../style/picture/parent.png"></image>
+			</view>
+			<view class="weui-grid__label">我的班级</view>
+		</navigator>
+
+  </view>
+  
+  <view wx:if="{{duty==3}}" class="weui-grids">
+
+    <view class="page__hd">
+      <view class="page__title">管理</view>
+    </view>
+
+    <navigator url="../employee/registry/registry" class="weui-grid">
+			<view class="weui-grid__icon">
+				<image style="width:110rpx;height:100rpx" src="../../style/picture/registry.png"></image>
+			</view>
+			<view class="weui-grid__label">员工注册</view>
+		</navigator>
+
+		<navigator url="../employee/manager/publish/pulish" class="weui-grid">
+			<view class="weui-grid__icon">
+				<image style="width:110rpx;height:100rpx" src="../../style/picture/publish.png"></image>
+			</view>
+			<view class="weui-grid__label">营销发布</view>
+		</navigator>
+
+    <navigator url="../employee/feedback/feedback" class="weui-grid">
+			<view class="weui-grid__icon">
+				<image style="width:110rpx;height:100rpx" src="../../style/picture/feedback.png"></image>
+			</view>
+			<view class="weui-grid__label">家长反馈</view>
+		</navigator>
+
+  </view>
+  
+  <view wx:if="{{duty==3||duty==2}}" class="weui-grids">
+
+    <view class="page__hd">
+      <view class="page__title">教务</view>
+    </view>
+
+		<navigator url="../employee/manager/market/market" class="weui-grid">
+			<view class="weui-grid__icon">
+				<image style="width:110rpx;height:100rpx" src="../../style/picture/market.png"></image>
+			</view>
+			<view class="weui-grid__label">营销注册</view>
+		</navigator>
+
+    <navigator url="../employee/registrar/before/order/order" class="weui-grid">
+			<view class="weui-grid__icon">
+				<image style="width:110rpx;height:100rpx" src="../../style/picture/advise.png"></image>
+			</view>
+			<view class="weui-grid__label">服务咨询</view>
+		</navigator>
+
+		<navigator url="../employee/registrar/before/schedule/schedule" class="weui-grid">
+			<view class="weui-grid__icon">
+				<image style="width:110rpx;height:100rpx" src="../../style/picture/time.png"></image>
+			</view>
+			<view class="weui-grid__label">课程安排</view>
+		</navigator>
+
+		<navigator url="../employee/registrar/after/class/class" class="weui-grid">
+			<view class="weui-grid__icon">
+				<image style="width:110rpx;height:100rpx" src="../../style/picture/class.png"></image>
+			</view>
+			<view class="weui-grid__label">开设班级</view>
+		</navigator>
+
+		<navigator url="../employee/registrar/after/manage/manage" class="weui-grid">
+			<view class="weui-grid__icon">
+				<image style="width:110rpx;height:100rpx" src="../../style/picture/registrar.png"></image>
+			</view>
+			<view class="weui-grid__label">班级管理</view>
+		</navigator>
+
+  </view>
+
+  <view wx:if="{{duty==3||duty==1}}" class="weui-grids">
+
+    <view class="page__hd">
+      <view class="page__title">老师</view>
+    </view>
+
+    <navigator url="../employee/teacher/manage/manage" class="weui-grid">
+			<view class="weui-grid__icon">
+				<image style="width:110rpx;height:100rpx" src="../../style/picture/teacher.png"></image>
+			</view>
+			<view class="weui-grid__label">今日课程</view>
+		</navigator>
+
+    <navigator url="../employee/teacher/correction/correction" class="weui-grid">
+			<view class="weui-grid__icon">
+				<image style="width:110rpx;height:100rpx" src="../../style/picture/homework.png"></image>
+			</view>
+			<view class="weui-grid__label">作业批改</view>
+		</navigator>
+
+  </view>
+</view>

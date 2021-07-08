@@ -1,0 +1,11 @@
+/* pages/registry/registry.wxss */
+.weui-form__control-area{
+  margin: 28rpx 0;
+}
+.button{
+  background-color:#627b8f ;
+  color: #fff;
+}
+.tap_button{
+  background-color:#8ca2b5; 
+}

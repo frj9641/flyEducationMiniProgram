@@ -1,0 +1,18 @@
+/* pages/employee/advise/advise.wxss */
+.weui-panel__hd{
+  padding: 19rpx 37rpx 9rpx;
+  font-size: 44rpx;
+}
+.weui-panel__bd{
+  border-bottom: 2rpx solid var(--weui-FG-3);
+}
+.weui-media-box_text{
+  padding: 9rpx 37rpx 9rpx;
+}
+.weui-media-box__title{
+  font-size: 40rpx;
+}
+.weui-media-box__desc{
+  font-size: 30rpx;
+  color: #000000;
+}

@@ -1,0 +1,21 @@
+/* pages/employee/teacher/question/question.wxss */
+.buttons{
+  position: fixed;
+  right: 0;
+}
+.button{
+  font-size: 30rpx;
+  background-color:#627b8f ;
+  color: #fff;
+  border-radius: 0rpx;
+}
+.tap_button{
+  background-color:#8ca2b5; 
+}
+.weui-panel__bd{
+  border-bottom: 2rpx solid var(--weui-FG-3);
+  display: flex;
+}
+.weui-media-box_text{
+  padding: 9rpx 37rpx 9rpx;
+}

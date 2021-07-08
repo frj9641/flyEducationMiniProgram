@@ -1,0 +1,35 @@
+<view class="page" data-weui-theme="{{theme}}">
+
+	<view class="page__hd">
+		<view class="weui-panel__hd">课程列表</view>
+		<!-- <view class="page__desc">面板</view> -->
+	</view>
+
+	<view class="page__bd">
+    <view class="weui-panel weui-panel_access">
+			<view wx:for="{{markets}}" wx:key="marketId" class="weui-panel__bd">
+				<view class="weui-media-box weui-media-box_appmsg">
+					<view class="weui-media-box__bd" style="padding-left:24rpx">
+						<h4 class="weui-media-box__title">{{item.marketName}}</h4>
+            <view class="weui-media-box__desc">老师姓名:{{item.teacherName}}</view>
+            <view class="weui-media-box__desc">教务姓名:{{item.registrarName}}</view>
+						<view class="weui-media-box__desc">课程类型:{{item.isPeriod==0?'学期课':'课时课'}}</view>
+						<view wx:if="{{item.isPeriod==1}}" class="weui-media-box__desc">课时数量:{{item.period}}</view>
+            <view class="weui-media-box__desc">销售价格:{{item.price}}</view>
+            <view class="weui-media-box__desc">提交日期:{{item.date}}</view>
+					</view>
+					<view class="weui-media-box__hd" style="width: 254rpx;height: 354rpx;">
+						<image class="weui-media-box__thumb" bindtap="preview" data-posterUrl="{{item.posterUrl}}" src="{{server}}/poster/{{item.posterUrl}}"></image>
+					</view>				
+				</view>
+				<view class="button_column">
+						<button class="button" style="width:100%" hover-class="tap_button" wx:if="{{item.isReleased==0}}" data-index="{{index}}" data-marketId="{{item.marketId}}" bindtap="publishMarket">发布</button>
+            <button class="button" style="width:100%" hover-class="tap_button" wx:if="{{item.isReleased==1}}" data-index="{{index}}" data-marketId="{{item.marketId}}" bindtap="publishMarket">取消</button>
+            <button class="button" style="width:100%" hover-class="tap_button" data-index="{{index}}" data-marketId="{{item.marketId}}" bindtap="deleteMarket">删除</button>
+					</view>
+			</view>
+		</view>
+	</view>
+
+</view>
+

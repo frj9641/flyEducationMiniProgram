@@ -1,0 +1,45 @@
+<view class="page" data-weui-theme="{{theme}}">
+
+	<view>
+		<view class="weui-flex kind-list__item-hd {{open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
+			<view class="weui-flex__item">筛选</view>
+		</view>
+		<view class="kind-list__item-bd {{open ? 'kind-list__item-bd_show' : ''}}">
+			<view class="weui-cells {{open ? 'weui-cells_show' : ''}}">
+				<block wx:for="{{markets}}">
+					<view class="filter">
+						<view class='{{item==market?"select_filter_item":"filter_item"}}' bindtap="filter" data-marketName="{{item}}">{{item}}</view>
+					</view>
+				</block>
+			</view>
+		</view>
+	</view>
+
+	<view class="title page__hd">
+		<view class="weui-panel__hd">报名学生</view>
+		<image bindtap="toAddPage" class="title_image" src="../../../../../style/picture/add.png"></image>
+		<!-- <view class="page__desc">面板</view> -->
+	</view>
+
+	<view class="page__bd">
+		<view class="weui-panel weui-panel_access">
+    <!-- wx:for-item="item" 可以省略 -->
+			<view wx:if="{{!item.classId&&(item.marketName==market||isAll==1)}}" wx:for="{{students}}" wx:key="studentId" class="weui-panel__bd">
+				<view class="weui-media-box weui-media-box_text">
+				<view>
+          <h4 class="weui-media-box__title">{{item.studentName}}</h4>
+					<button class="add_button" hover-class="tap_button" bindtap="addStudent" data-index="{{index}}" data-studentId="{{item.studentId}}" size="mini">添加</button>
+				</view>
+				<view class="weui-media-box__desc">所报科目：{{item.marketName}}</view>
+				<view class="weui-media-box__desc">任课老师：{{item.teacherName}}</view>
+				<view class="weui-media-box__desc">年级：{{item.grade}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	
+	
+</view>
+
+

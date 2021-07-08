@@ -1,0 +1,24 @@
+<view class="page">
+	<view class="page__bd">
+
+		<view class="weui-tab">
+			<view class="weui-tab__panel">
+			<!-- 防止异步错误 -->
+        <image class="poster" wx:if="{{posterUrl}}" mode="widthFix" src="{{server}}/poster/{{posterUrl}}"></image>
+			</view>
+		</view>
+
+		<view class="weui-tabbar">
+			<!-- <view class="weui-tabbar__item weui-bar__item_on"> -->
+				<!-- <view style="display: inline-block; position: relative;">
+					<image alt class="weui-tabbar__icon"></image>
+				</view> -->
+				<button style="width:100%" type="primary" class="btn" bindtap="skipSubmit">
+					<image class="button_image" src="../../../style/picture/query.png"></image>
+					<text class="button_text">咨询</text>
+				</button>
+			<!-- </view> -->
+		</view>
+
+	</view>
+</view>

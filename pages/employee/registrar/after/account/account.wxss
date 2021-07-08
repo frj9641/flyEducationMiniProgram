@@ -1,0 +1,8 @@
+/* pages/employee/registrar/after/account/account.wxss */
+.button{
+  background-color:#627b8f ;
+  color: #fff;
+}
+.tap_button{
+  background-color:#8ca2b5; 
+}

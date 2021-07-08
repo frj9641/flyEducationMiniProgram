@@ -1,0 +1,38 @@
+<view class="page" data-weui-theme="{{theme}}">
+
+	<view class="page__hd">
+		<view class="weui-panel__hd">我的课程</view>
+		<!-- <view class="page__desc">面板</view> -->
+	</view>
+
+	<scroll-view scroll-x style="border-bottom: 1px solid var(--weui-FG-3);">
+		<view class="filter">
+			<view class="filter_items" wx:for="{{days}}">
+				<view class='{{item==day?"select_filter_item":"filter_item"}}' data-day="{{item}}" bindtap="filter">{{item}}</view>
+			</view>
+		</view>
+	</scroll-view>
+
+	<view class="page__bd">
+		<view class="weui-panel weui-panel_access">
+    <!-- wx:for-item="item" 可以省略 -->
+			<view wx:for="{{classes}}" wx:key="classId" class="weui-panel__bd">
+				<block wx:if="{{item.isToday==isToday}}">
+					<view class="weui-media-box weui-media-box_text">
+						<h4 class="weui-media-box__title">{{item.className}}</h4>
+						<view class="weui-media-box__desc">任课老师：{{item.teacherName}}</view>
+						<view class="weui-media-box__desc">负责教务：{{item.registrarName}}</view>
+					</view>
+					<view class="button_column">
+						<button data-classId="{{item.classId}}" class="button" hover-class="tap_button" bindtap="signin">课程签到</button>
+						<button data-classId="{{item.classId}}" class="button" hover-class="tap_button" bindtap="homework">发布作业</button>
+						<button data-classId="{{item.classId}}" class="button" hover-class="tap_button" bindtap="school">成绩登记</button>
+					</view>
+				</block>
+			</view>
+		</view>
+	</view>
+
+</view>
+
+

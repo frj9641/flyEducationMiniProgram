@@ -1,0 +1,84 @@
+<view class="page" data-weui-theme="{{theme}}">
+
+	<form class="weui-form" bindsubmit="informationSubmit">
+		<view class="weui-form__text-area">
+			<h2 class="weui-form__title">学员基础信息</h2>
+			<!-- <view class="weui-form__desc">展示表单页面的信息结构样式, 分别由头部区域/控件区域/提示区域/操作区域和底部信息区域组成。</view> -->
+		</view>
+    
+		<view class="weui-form__control-area">
+			<view class="weui-cells__group weui-cells__group_form">
+				<!-- <view class="weui-cells__title">表单组标题</view> -->
+				<view class="weui-cells weui-cells_form">
+        
+					<view class="weui-cell weui-cell_active">
+						<view class="weui-cell__hd"><label class="weui-label">学生姓名</label></view>
+						<view class="weui-cell__bd">
+							<input name="studentName" class="weui-input" placeholder="填写学生姓名" placeholder-class="weui-input__placeholder" />
+						</view>
+					</view>
+
+          <view class="weui-cell weui-cell_active">
+						<view class="weui-cell__hd"><label class="weui-label">家长姓名</label></view>
+						<view class="weui-cell__bd">
+							<input name="parentName" class="weui-input" placeholder="填写家长姓名" placeholder-class="weui-input__placeholder" />
+						</view>
+					</view>
+
+          <view class="weui-cell weui-cell_active">
+						<view class="weui-cell__hd"><label class="weui-label">就读学校</label></view>
+						<view class="weui-cell__bd">
+							<input name="school" class="weui-input" placeholder="填写就读学校" placeholder-class="weui-input__placeholder" />
+						</view>
+					</view>
+
+					<view class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd"><label class="weui-label">学生年级</label></view>
+						<view class="weui-cell__bd">
+              <picker bindchange="bindGradeChange" range="{{grades}}">
+                <view class="weui-select">{{grades[grade]}}</view>
+              </picker>
+						</view>
+					</view>
+
+					<view class="weui-cell weui-cell_active">
+						<view class="weui-cell__hd">							
+              <label class="weui-label">联系电话</label>
+            </view>
+						<view class="weui-cell__bd">
+							<input type="number" maxlength="11" name="phone" class="weui-input" placeholder="填写该微信绑定的电话号码" placeholder-class="weui-input__placeholder" />
+						</view>
+					</view>
+
+				</view>
+			</view>
+		</view>
+
+		<view class="weui-form__tips-area">
+			<view class="weui-form__tips">
+        联系电话请填写该微信绑定的电话号码，保证工作人员可以联系上您！
+			</view>
+		</view>
+
+		<view class="weui-form__opr-area">
+			<button wx:if="{{submit==0}}" class="button" hover-class="tap_button" form-type="submit">咨询</button>
+		</view>
+
+		<!-- <view class="weui-form__tips-area">
+			<view class="weui-form__tips">
+                表单页提示，居中对齐
+			</view>
+		</view> -->
+    
+		<view class="weui-form__extra-area">
+			<view class="weui-footer">
+				<!-- <view class="weui-footer__links">
+					<a href="javascript:" class="weui-footer__link">底部链接文本</a>
+				</view> -->
+				<view class="weui-footer__text">Copyright © 2019-2020</view>
+			</view>
+		</view>
+
+	</form>
+
+</view>

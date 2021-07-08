@@ -1,0 +1,84 @@
+<view class="page" data-weui-theme="{{theme}}">
+
+	<form class="weui-form" bindsubmit="informationSubmit">
+		<view class="weui-form__text-area">
+			<h2 class="weui-form__title">员工基础信息</h2>
+			<!-- <view class="weui-form__desc">展示表单页面的信息结构样式, 分别由头部区域/控件区域/提示区域/操作区域和底部信息区域组成。</view> -->
+		</view>
+    
+		<view class="weui-form__control-area">
+			<view class="weui-cells__group weui-cells__group_form">
+				<!-- <view class="weui-cells__title">表单组标题</view> -->
+				<view class="weui-cells weui-cells_form">
+        
+					<view class="weui-cell weui-cell_active">
+						<view class="weui-cell__hd"><label class="weui-label">员工姓名</label></view>
+						<view class="weui-cell__bd">
+							<input name="employeeName" class="weui-input" placeholder="填写员工姓名" placeholder-class="weui-input__placeholder" />
+						</view>
+					</view>
+
+          <view class="weui-cell weui-cell_active">
+						<view class="weui-cell__hd"><label class="weui-label">联系方式</label></view>
+						<view class="weui-cell__bd">
+							<input name="phone" type="number" maxlength="11" class="weui-input" placeholder="填写联系方式" placeholder-class="weui-input__placeholder" />
+						</view>
+					</view>
+
+					<view class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd"><label class="weui-label">所属部门</label></view>
+						<view class="weui-cell__bd">
+              <picker name="department" bindchange="bindDepartmentChange" range="{{departments}}">
+                <view class="weui-select">{{department}}</view>
+              </picker>
+						</view>
+					</view>
+
+					<view class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd"><label class="weui-label">职能</label></view>
+						<view class="weui-cell__bd">
+              <picker name="department" bindchange="bindDutyChange" range="{{duties}}">
+                <view class="weui-select">{{duty}}</view>
+              </picker>
+						</view>
+					</view>
+					
+					<!-- <view class="weui-cell weui-cell_active">
+          	<view class="weui-cell__hd">
+							<label class="weui-label">职能</label>
+						</view>
+						<view class="weui-cell__bd">
+							<checkbox-group bindchange="workChange">
+								<label class="checkbox" wx:for="{{works}}" wx:key="name">
+									<checkbox value="{{item.name}}"/>{{item.value}}
+								</label>
+							</checkbox-group>
+						</view>
+					</view> -->
+
+				</view>
+			</view>
+		</view>
+
+		<view class="weui-form__opr-area">
+			<button wx:if="{{submit==0}}" class="button" hover-class="tap_button" form-type="submit">确定</button>
+		</view>
+
+		<!-- <view class="weui-form__tips-area">
+			<view class="weui-form__tips">
+                表单页提示，居中对齐
+			</view>
+		</view> -->
+    
+		<view class="weui-form__extra-area">
+			<view class="weui-footer">
+				<!-- <view class="weui-footer__links">
+					<a href="javascript:" class="weui-footer__link">底部链接文本</a>
+				</view> -->
+				<view class="weui-footer__text">Copyright © 2019-2020</view>
+			</view>
+		</view>
+
+	</form>
+
+</view>

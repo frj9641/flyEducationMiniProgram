@@ -1,0 +1,26 @@
+<view class="page" data-weui-theme="{{theme}}">
+
+	<view class="page__hd">
+		<view class="weui-panel__hd">我的课程</view>
+		<!-- <view class="page__desc">面板</view> -->
+	</view>
+
+	<view class="page__bd">
+		<view class="weui-panel weui-panel_access">
+    <!-- wx:for-item="item" 可以省略 -->
+			<view wx:for="{{classes}}" wx:key="studentId" class="weui-panel__bd">
+				<view class="weui-media-box weui-media-box_text">
+					<h4 class="weui-media-box__title">{{item.className}}</h4>
+					<view class="weui-media-box__desc">{{item.studentName}}</view>
+				</view>
+				<view class="button_column">
+					<button bindtap="toHomework" data-classId="{{item.classId}}" data-studentId="{{item.studentId}}" class="button" hover-class="tap_button">作业查询</button>
+					<button bindtap="toStatistics" data-classId="{{item.classId}}" data-studentId="{{item.studentId}}" class="button" hover-class="tap_button">考核统计</button>
+					<button bindtap="toFeedback" data-classId="{{item.classId}}" data-studentId="{{item.studentId}}" class="button" hover-class="tap_button">老师反馈</button>
+				</view>
+			</view>
+		</view>
+	</view>
+
+</view>
+

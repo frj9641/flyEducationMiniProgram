@@ -1,0 +1,11 @@
+<!-- <view class="container">
+    <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+</view> -->
+
+<view>
+您的孩子总计课时为{{signs.length}}，出勤{{signin}}次，迟到{{belate}}次，旷课{{absent}}次
+</view>
+<view wx:for="{{signs}}" wx:key="signId">
+    <view wx:if="{{item.mark==2}}">{{item.date}} 迟到</view>
+    <view wx:if="{{item.mark==3}}">{{item.date}} 旷课</view>
+</view>
